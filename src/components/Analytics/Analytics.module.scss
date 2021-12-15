@@ -1,0 +1,269 @@
+@mixin chart_basics {
+    -webkit-box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.22);
+    box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.22);
+    background: white;
+    color: #1e293b;
+    overflow: hidden;
+
+    h2 {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    & > * {
+        padding: 0 1.2rem;
+    }
+}
+
+.title {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-top: var(--margin-xs);
+    margin-bottom: var(--margin-md);
+    color: #1e293b;
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    svg {
+        font-size: 3rem;
+    }
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.analytics {
+    @include chart_basics();
+    grid-row: 1/2;
+    grid-column: 1/5;
+
+    @media screen and (max-width: 1400px) {
+        grid-column: 1/7;
+    }
+
+    .statistics {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-top: 1px solid rgb(228, 228, 228);
+
+        .statistic {
+            padding-left: 0.5rem;
+            padding-right: 1rem;
+            border-right: 1px solid rgb(238, 238, 238);
+            @media screen and (max-width: 780px) {
+                border: none;
+            }
+
+            &:last-child {
+                border-right: none;
+            }
+
+            .overview {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+
+                .sum {
+                    font-size: 2rem;
+                    font-weight: 600;
+                }
+
+                .percentage {
+                    text-align: center;
+                }
+
+                .percentage_orange {
+                    color: #f59e0b;
+                }
+
+                .percetange_green {
+                    color: #10b981;
+                }
+            }
+
+            .statistic_title {
+                font-size: 0.8rem;
+                font-weight: 400;
+                color: #64748b;
+            }
+        }
+    }
+
+    .line {
+        padding-bottom: 1rem;
+        height: 315px;
+    }
+}
+
+.active_users {
+    @include chart_basics();
+    grid-row: 1/2;
+    grid-column: 5/7;
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (max-width: 1400px) {
+        grid-row: 2/3;
+        grid-column: 1/7;
+    }
+
+    .live_visitors {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-top: 1px solid rgb(228, 228, 228);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .dot {
+            width: 0.9rem;
+            height: 0.9rem;
+            background: #f43f5e;
+            border-radius: 50%;
+            border: 0.3rem solid #ffe4e6;
+        }
+
+        .num {
+            font-size: 1.8rem;
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+
+            .live {
+                font-size: 0.8rem;
+                font-weight: 400;
+                color: #64748b;
+            }
+        }
+    }
+
+    .line {
+        margin-top: var(--margin-xs);
+        height: 100px;
+        padding-bottom: 1rem;
+    }
+
+    table {
+        table-layout: auto;
+
+        .left_col,
+        .right_col {
+            color: #94a3b8;
+            @media screen and (max-width: 330px) {
+                font-size: 14px;
+            }
+        }
+
+        .left_col {
+            text-align: left;
+        }
+
+        .right_col {
+            text-align: right;
+        }
+
+        th {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e6e6e6;
+        }
+
+        .txt_left,
+        .txt_right {
+            font-size: 1rem;
+            font-weight: 400;
+            @media screen and (max-width: 330px) {
+                font-size: 14px;
+            }
+        }
+
+        .txt_left {
+            text-align: left;
+            color: #475569;
+        }
+
+        .txt_right {
+            text-align: right;
+            color: #1e293b;
+        }
+    }
+
+    .see_more {
+        padding-block: 0.5rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        a {
+            text-decoration: none;
+            font-size: 1.1rem;
+            color: #6366f1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 0.5rem;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            @media screen and (max-width: 330px) {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+.channels {
+    @include chart_basics();
+    grid-row: 2/3;
+    grid-column: 1/4;
+
+    @media screen and (max-width: 1400px) {
+        grid-row: 3/4;
+    }
+
+    @media screen and (max-width: 768px) {
+        grid-column: 1/7;
+    }
+
+    .stacked_columns {
+        height: 320px;
+        padding-bottom: 1rem;
+        border-top: 1px solid rgb(228, 228, 228);
+    }
+}
+
+.audience {
+    @include chart_basics();
+    grid-row: 2/3;
+    grid-column: 4/7;
+
+    @media screen and (max-width: 1400px) {
+        grid-row: 3/4;
+    }
+
+    @media screen and (max-width: 768px) {
+        grid-row: 4/5;
+        grid-column: 1/7;
+    }
+
+    .audience_overview {
+        height: 320px;
+        padding-bottom: 1rem;
+        border-top: 1px solid rgb(228, 228, 228);
+    }
+}

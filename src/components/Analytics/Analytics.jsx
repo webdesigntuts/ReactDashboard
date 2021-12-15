@@ -6,8 +6,6 @@ import { Link } from "react-router-dom";
 import { WiStars } from "react-icons/wi";
 import { FaArrowRight } from "react-icons/fa";
 
-import { useEffect } from "react";
-
 const Statistics = ({ sum, percentage, title }) => {
   return (
     <div className={styles.statistic}>
